@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#3E2E22">
+  <title>Lou Portaou — Restaurant provençal au cœur du vieux Bormes | Bormes-les-Mimosas</title>
+  <meta name="description" content="Lou Portaou, restaurant provençal et méditerranéen niché dans une maison de village en pierre, au cœur du village médiéval de Bormes-les-Mimosas, à quelques pas de l'église. Terrasse ombragée, cuisine de saison, ambiance romantique. 4,7/5 sur Google avec plus de 800 avis.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Base & palette provençale ===== */
+    :root{
+      --terracotta:#B5542D;
+      --olive:#6B7A45;
+      --creme:#F7F1E5;
+      --brun:#3E2E22;
+      --brun-profond:#2E211A;
+      --blanc:#FFFFFF;
+      --or:#C89B3C;
+      --or-clair:#D9AF4C;
+      --texte-doux:#5D4A38;
+      --ombre:0 12px 34px rgba(62,46,34,.10);
+      --ombre-forte:0 20px 48px rgba(62,46,34,.18);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Lora',Georgia,serif;
+      background:var(--creme);
+      color:var(--brun);
+      line-height:1.75;
+      font-size:16.5px;
+      overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+    }
+    img{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+    ::selection{background:var(--or);color:var(--brun-profond)}
+    section{scroll-margin-top:76px}
+
+    .container{max-width:1180px;margin:0 auto;padding:0 24px}
+    .section{padding:96px 0}
+    .section-head{max-width:780px;margin:0 auto 58px;text-align:center}
+    .section-label{
+      display:inline-block;
+      font-size:.78rem;
+      letter-spacing:.32em;
+      text-transform:uppercase;
+      color:var(--terracotta);
+      font-weight:600;
+      margin-bottom:16px;
+    }
+    .section-title{
+      font-family:'Playfair Display',Georgia,serif;
+      font-weight:600;
+      font-size:clamp(1.9rem,3.6vw,2.75rem);
+      line-height:1.22;
+      margin-bottom:18px;
+    }
+    .ornament{
+      display:flex;align-items:center;justify-content:center;gap:12px;
+      margin:0 auto 20px;width:100%;
+    }
+    .ornament::before,.ornament::after{
+      content:"";height:1px;width:64px;background:linear-gradient(90deg,transparent,var(--or));
+    }
+    .ornament::after{background:linear-gradient(90deg,var(--or),transparent)}
+    .ornament i{
+      width:9px;height:9px;background:var(--or);
+      transform:rotate(45deg);display:inline-block;flex:none;
+    }
+    .section-intro{color:var(--texte-doux);font-size:1.06rem}
+
+    .btn{
+      display:inline-block;
+      font-family:'Lora',Georgia,serif;
+      font-size:.92rem;
+      font-weight:600;
+      letter-spacing:.06em;
+      padding:15px 32px;
+      border-radius:3px;
+      border:1.5px solid var(--or);
+      background:var(--or);
+      color:var(--brun-profond);
+      cursor:pointer;
+      transition:background .3s ease,color .3s ease,transform .3s ease,box-shadow .3s ease;
+    }
+    .btn:hover{
+      background:var(--or-clair);
+      border-color:var(--or-clair);
+      transform:translateY(-2px);
+      box-shadow:0 10px 24px rgba(200,155,60,.35);
+    }
+    .btn-outline{
+      background:transparent;
+      color:var(--or);
+      border:1.5px solid var(--or);
+    }
+    .btn-outline:hover{background:var(--or);color:var(--brun-profond)}
+    .btn-creme{background:transparent;border-color:var(--creme);color:var(--creme)}
+    .btn-creme:hover{background:var(--creme);color:var(--brun);border-color:var(--creme)}
+
+    /* ===== Header fixe (bandeau sombre) ===== */
+    .site-header{
+      position:fixed;top:0;left:0;right:0;z-index:1000;
+      background:linear-gradient(180deg,rgba(46,33,26,.97),rgba(46,33,26,.92));
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      border-bottom:1px solid rgba(200,155,60,.28);
+      box-shadow:0 4px 24px rgba(46,33,26,.28);
+    }
+    .nav-container{
+      max-width:1240px;margin:0 auto;padding:0 24px;
+      display:flex;align-items:center;justify-content:space-between;
+      height:74px;gap:20px;
+    }
+    .logo{
+      font-family:'Playfair Display',Georgia,serif;
+      color:var(--creme);
+      display:flex;flex-direction:column;line-height:1.1;
+    }
+    .logo .logo-name{font-size:1.55rem;font-weight:600;letter-spacing:.02em}
+    .logo .logo-name span{color:var(--or)}
+    .logo .logo-sub{
+      font-family:'Lora',Georgia,serif;
+      font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;
+      color:var(--or);margin-top:4px;
+    }
+    .nav-links{display:flex;align-items:center;gap:30px}
+    .nav-links a{
+      color:var(--creme);
+      font-size:.94rem;font-weight:500;letter-spacing:.03em;
+      position:relative;padding:6px 0;
+      transition:color .3s ease;
+    }
+    .nav-links a::after{
+      content:"";position:absolute;left:0;bottom:0;height:1.5px;width:0;
+      background:var(--or);transition:width .3s ease;
+    }
+    .nav-links a:hover{color:var(--or)}
+    .nav-links a:hover::after{width:100%}
+    .header-tel{
+      display:inline-block;
+      border:1.5px solid var(--or);color:var(--or);
+      border-radius:3px;padding:9px 20px;
+      font-size:.9rem;font-weight:600;letter-spacing:.04em;
+      transition:background .3s ease,color .3s ease;
+      white-space:nowrap;
+    }
+    .header-tel:hover{background:var(--or);color:var(--brun-profond)}
+    .burger{
+      display:none;
+      width:44px;height:44px;
+      background:transparent;border:0;cursor:pointer;
+      position:relative;z-index:1200;
+    }
+    .burger span{
+      display:block;width:26px;height:2px;margin:6px auto;
+      background:var(--creme);border-radius:2px;
+      transition:transform .35s ease,opacity .3s ease,background .3s ease;
+    }
+    .burger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+    .burger.open span:nth-child(2){opacity:0}
+    .burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+    /* ===== Hero ===== */
+    #hero{
+      position:relative;
+      min-height:100vh;
+      min-height:100svh;
+      display:flex;align-items:center;justify-content:center;
+      text-align:center;
+      padding:130px 24px 90px;
+      overflow:hidden;
+    }
+    .hero-img{
+      position:absolute;inset:0;width:100%;height:100%;
+      object-fit:cover;object-position:center 62%;
+      z-index:0;
+    }
+    .hero-overlay{
+      position:absolute;inset:0;z-index:1;
+      background:linear-gradient(180deg,rgba(46,33,26,.82) 0%,rgba(46,33,26,.58) 45%,rgba(46,33,26,.78) 100%);
+    }
+    .hero-content{
+      position:relative;z-index:2;
+      max-width:920px;
+      background:rgba(46,33,26,.62);
+      backdrop-filter:blur(3px);
+      -webkit-backdrop-filter:blur(3px);
+      border:1px solid rgba(200,155,60,.38);
+      border-radius:6px;
+      padding:52px 44px 46px;
+    }
+    .hero-kicker{
+      font-size:.78rem;letter-spacing:.34em;text-transform:uppercase;
+      color:var(--or);font-weight:600;margin-bottom:22px;
+    }
+    .hero-title{
+      font-family:'Playfair Display',Georgia,serif;
+      color:var(--blanc);
+      font-weight:700;
+      font-size:clamp(2.1rem,5vw,3.7rem);
+      line-height:1.18;
+      margin-bottom:22px;
+    }
+    .hero-title em{
+      font-style:normal;color:var(--or);
+      display:block;margin-bottom:8px;
+    }
+    .hero-sub{
+      font-family:'Lora',Georgia,serif;
+      color:var(--creme);
+      font-size:clamp(1rem,1.7vw,1.15rem);
+      line-height:1.8;
+      max-width:700px;margin:0 auto 32px;
+    }
+    .hero-actions{
+      display:flex;align-items:center;justify-content:center;
+      gap:18px;flex-wrap:wrap;
+    }
+    .hero-rating{
+      margin-top:34px;
+      color:var(--creme);font-size:.95rem;
+    }
+    .hero-rating .stars{color:var(--or);letter-spacing:.2em;font-size:1.02rem}
+    .hero-rating strong{color:var(--or);font-weight:600}
+
+    /* ===== Cuisine ===== */
+    #cuisine{background:var(--creme)}
+    .cards-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:28px;
+    }
+    .card{
+      background:var(--blanc);
+      border-radius:6px;
+      overflow:hidden;
+      box-shadow:var(--ombre);
+      display:flex;flex-direction:column;
+      transition:transform .4s ease,box-shadow .4s ease;
+    }
+    .card:hover{transform:translateY(-7px);box-shadow:var(--ombre-forte)}
+    .card-media{position:relative;aspect-ratio:16/11;overflow:hidden}
+    .card-media img{
+      width:100%;height:100%;object-fit:cover;
+      transition:transform .65s ease;
+    }
+    .card:hover .card-media img{transform:scale(1.06)}
+    .card-body{padding:26px 26px 30px;flex:1;display:flex;flex-direction:column}
+    .card-num{
+      font-family:'Playfair Display',Georgia,serif;
+      font-size:.8rem;letter-spacing:.22em;color:var(--terracotta);
+      margin-bottom:10px;font-style:italic;
+    }
+    .card-title{
+      font-family:'Playfair Display',Georgia,serif;
+      font-weight:600;font-size:1.28rem;line-height:1.3;margin-bottom:12px;
+    }
+    .card-line{width:46px;height:2px;background:var(--or);margin:0 0 14px}
+    .card-text{color:var(--texte-doux);font-size:.98rem;line-height:1.72}
+
+    /* ===== À propos ===== */
+    #apropos{background:var(--blanc)}
+    .apropos-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:72px;
+      align-items:center;
+    }
+    .apropos-photos{position:relative;padding-bottom:46px;padding-right:34px}
+    .apropos-photo-main{
+      width:100%;aspect-ratio:4/5;
+      border-radius:6px;overflow:hidden;
+      box-shadow:var(--ombre-forte);
+    }
+    .apropos-photo-main img{width:100%;height:100%;object-fit:cover}
+    .apropos-photo-small{
+      position:absolute;bottom:0;right:0;
+      width:47%;aspect-ratio:1;
+      border-radius:6px;overflow:hidden;
+      border:6px solid var(--blanc);
+      box-shadow:var(--ombre-forte);
+    }
+    .apropos-photo-small img{width:100%;height:100%;object-fit:cover}
+    .apropos-text .section-label{margin-bottom:14px}
+    .apropos-text .section-title{margin-bottom:22px;text-align:left}
+    .apropos-text p{color:var(--texte-doux);margin-bottom:18px}
+    .apropos-points{
+      list-style:none;
+      margin:26px 0 28px;
+      display:grid;gap:12px;
+    }
+    .apropos-points li{
+      position:relative;padding-left:28px;
+      color:var(--brun);font-size:.99rem;font-weight:500;
+    }
+    .apropos-points li::before{
+      content:"";position:absolute;left:4px;top:9px;
+      width:8px;height:8px;background:var(--olive);
+      transform:rotate(45deg);
+    }
+    .apropos-signature{
+      font-family:'Playfair Display',Georgia,serif;
+      font-style:italic;font-size:1.16rem;color:var(--terracotta);
+    }
+    .apropos-cta{margin-top:26px}
+
+    /* ===== Galerie (partie 2) ===== */
+    #galerie{background:var(--brun);padding:96px 0}
+    #galerie .section-label{color:var(--or)}
+    #galerie .section-title{color:var(--creme)}
+    #galerie .section-intro{color:rgba(247,241,229,.78)}
+    #galerie .ornament::before{background:linear-gradient(90deg,transparent,rgba(200,155,60,.7))}
+    #galerie .ornament::after{background:linear-gradient(90deg,rgba(200,155,60,.7),transparent)}
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .gallery-item{
+      position:relative;
+      aspect-ratio:4/3;
+      border-radius:6px;overflow:hidden;
+      box-shadow:0 10px 26px rgba(0,0,0,.32);
+    }
+    .gallery-item.wide{grid-column:span 2}
+    .gallery-item img{
+      width:100%;height:100%;object-fit:cover;
+      transition:transform .7s ease;
+    }
+    .gallery-item:hover img{transform:scale(1.07)}
+    .gallery-item figcaption{
+      position:absolute;left:0;right:0;bottom:0;z-index:2;
+      background:linear-gradient(180deg,rgba(46,33,26,0) 0%,rgba(46,33,26,.92) 46%);
+      padding:46px 18px 15px;
+      color:var(--creme);
+      font-size:.9rem;letter-spacing:.02em;line-height:1.5;
+    }
+    .gallery-item figcaption strong{
+      display:block;
+      font-family:'Playfair Display',Georgia,serif;
+      font-weight:600;font-size:1.02rem;color:var(--or);
+      margin-bottom:2px;
+    }
+
+    /* ===== Avis (partie 2) ===== */
+    #avis{background:var(--creme)}
+    .avis-summary{text-align:center;margin-bottom:54px}
+    .avis-score{
+      font-family:'Playfair Display',Georgia,serif;
+      font-weight:700;font-size:clamp(3rem,6vw,4.4rem);
+      color:var(--terracotta);line-height:1;
+    }
+    .avis-score small{
+      font-size:1.5rem;color:var(--texte-doux);font-weight:500;
+    }
+    .avis-stars{color:var(--or);letter-spacing:.24em;font-size:1.35rem;margin:10px 0 8px}
+    .avis-summary p{color:var(--texte-doux);font-size:1.02rem}
+    .avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+    .avis-card{
+      background:var(--blanc);
+      border-radius:6px;
+      padding:34px 30px 30px;
+      box-shadow:var(--ombre);
+      position:relative;
+      display:flex;flex-direction:column;
+    }
+    .avis-card::before{
+      content:"\201C";
+      position:absolute;top:8px;right:22px;
+      font-family:'Playfair Display',Georgia,serif;
+      font-size:4.6rem;line-height:1;color:var(--or);
+      opacity:.22;pointer-events:none;
+    }
+    .avis-card .avis-stars{font-size:1rem;margin:0 0 14px}
+    .avis-text{
+      font-style:italic;color:var(--texte-doux);
+      font-size:.99rem;line-height:1.75;
+      margin-bottom:20px;flex:1;
+    }
+    .avis-author{color:var(--brun);font-weight:600;font-size:.98rem}
+    .avis-author small{
+      display:block;font-weight:400;color:var(--texte-doux);
+      font-size:.85rem;margin-top:2px;
+    }
+    .avis-footer{
+      text-align:center;margin-top:44px;
+      color:var(--texte-doux);font-size:.98rem;
+    }
+    .avis-footer a{color:var(--terracotta);font-weight:600;border-bottom:1px solid var(--terracotta)}
+    .avis-footer a:hover{color:var(--or);border-color:var(--or)}
+
+    /* ===== Infos pratiques (partie 2) ===== */
+    #infos{background:var(--blanc)}
+    .infos-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:64px;
+      align-items:start;
+    }
+    .info-block{margin-bottom:34px}
+    .info-block h3{
+      font-family:'Playfair Display',Georgia,serif;
+      font-weight:600;font-size:1.22rem;margin-bottom:14px;
+      display:flex;align-items:center;gap:10px;
+    }
+    .info-block h3::before{
+      content:"";width:9px;height:9px;background:var(--or);
+      transform:rotate(45deg);flex:none;
+    }
+    .info-block p,.info-block address{
+      color:var(--texte-doux);font-style:normal;font-size:.99rem;
+      margin-bottom:6px;
+    }
+    .horaires{
+      width:100%;border-collapse:collapse;
+      font-size:.97rem;
+    }
+    .horaires td{
+      padding:9px 0;border-bottom:1px solid rgba(62,46,34,.12);
+      color:var(--texte-doux);
+    }
+    .horaires td:last-child{text-align:right;color:var(--brun);font-weight:500}
+    .horaires tr:last-child td{border-bottom:0}
+    .horaires .ferme{color:var(--terracotta)}
+    .info-note{
+      background:var(--creme);
+      border-left:3px solid var(--olive);
+      border-radius:0 4px 4px 0;
+      padding:16px 20px;
+      color:var(--texte-doux);
+      font-size:.94rem;
+    }
+    .info-note strong{color:var(--brun)}
+    .infos-reassurance{
+      display:grid;gap:16px;
+      background:var(--creme);
+      border:1px solid rgba(107,122,69,.25);
+      border-radius:6px;
+      padding:30px 30px 26px;
+    }
+    .infos-reassurance h3{
+      font-family:'Playfair Display',Georgia,serif;
+      font-weight:600;font-size:1.24rem;margin-bottom:6px;
+    }
+    .infos-reassurance p{color:var(--texte-doux);font-size:.97rem;margin-bottom:10px}
+    .infos-reassurance .btn{align-self:flex-start}
+    .infos-note-google{
+      margin-top:16px;font-size:.88rem;color:var(--texte-doux);
+    }
+    .infos-note-google strong{color:var(--terracotta)}
+    .link-or{
+      color:var(--terracotta);font-weight:600;
+      border-bottom:1px solid var(--terracotta);
+      transition:color .3s ease;
+    }
+    .link-or:hover{color:var(--or);border-color:var(--or)}
+
+    /* ===== Contact (partie 2) ===== */
+    #contact{
+      background:linear-gradient(135deg,var(--brun) 0%,var(--brun-profond) 100%);
+      color:var(--creme);
+      text-align:center;
+      padding:100px 0;
+    }
+    #contact .section-label{color:var(--or)}
+    #contact .section-title{color:var(--blanc)}
+    #contact .ornament::before{background:linear-gradient(90deg,transparent,rgba(200,155,60,.7))}
+    #contact .ornament::after{background:linear-gradient(90deg,rgba(200,155,60,.7),transparent)}
+    #contact .section-intro{color:rgba(247,241,229,.82);max-width:640px;margin:0 auto 34px}
+    .contact-actions{
+      display:flex;align-items:center;justify-content:center;
+      gap:18px;flex-wrap:wrap;
+    }
+    .contact-adresse{
+      margin-top:36px;
+      font-size:.95rem;color:rgba(247,241,229,.72);
+      letter-spacing:.02em;
+    }
+    .contact-adresse strong{color:var(--or);font-weight:600}
+
+    /* ===== Footer (partie 2) ===== */
+    .site-footer{
+      background:var(--brun-profond);
+      color:rgba(247,241,229,.72);
+      padding:58px 0 30px;
+      font-size:.92rem;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.3fr 1fr 1fr;
+      gap:44px;
+      margin-bottom:40px;
+    }
+    .footer-brand .logo .logo-name{font-size:1.5rem}
+    .footer-brand p{margin-top:14px;line-height:1.7}
+    .footer-col h4{
+      font-family:'Playfair Display',Georgia,serif;
+      color:var(--creme);font-weight:600;
+      font-size:1.02rem;letter-spacing:.04em;
+      margin-bottom:16px;
+    }
+    .footer-col ul{list-style:none;display:grid;gap:9px}
+    .footer-col a{transition:color .3s ease}
+    .footer-col a:hover{color:var(--or)}
+    .footer-col a, .footer-col li{color:rgba(247,241,229,.72)}
+    .footer-bottom{
+      border-top:1px solid rgba(247,241,229,.14);
+      padding-top:24px;
+      display:flex;align-items:center;justify-content:space-between;
+      gap:14px;flex-wrap:wrap;
+      font-size:.8rem;color:rgba(247,241,229,.5);
+    }
+
+    /* ===== Animations ===== */
+    .js .reveal{
+      opacity:0;transform:translateY(28px);
+      transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1);
+    }
+    .js .reveal.visible{opacity:1;transform:none}
+    .js .cards-grid .card:nth-child(2),.js .avis-grid .avis-card:nth-child(2){transition-delay:.12s}
+    .js .cards-grid .card:nth-child(3),.js .avis-grid .avis-card:nth-child(3){transition-delay:.24s}
+    .js .cards-grid .card:nth-child(5),.js .avis-grid .avis-card:nth-child(5){transition-delay:.12s}
+    .js .cards-grid .card:nth-child(6),.js .avis-grid .avis-card:nth-child(6){transition-delay:.24s}
+    @media (prefers-reduced-motion:reduce){
+      .js .reveal{opacity:1;transform:none;transition:none}
+      html{scroll-behavior:auto}
+      .card,.card:hover .card-media img,.gallery-item:hover img{transition:none}
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width:1024px){
+      .cards-grid{grid-template-columns:repeat(2,1fr)}
+      .apropos-grid{gap:44px}
+      .footer-grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:900px){
+      .nav-links{
+        position:fixed;inset:0;
+        background:rgba(46,33,26,.98);
+        flex-direction:column;justify-content:center;
+        gap:34px;
+        transform:translateY(-102%);
+        transition:transform .45s cubic-bezier(.22,.61,.36,1);
+        z-index:1100;
+      }
+      .nav-links.open{transform:translateY(0)}
+      .nav-links a{font-size:1.35rem}
+      .header-tel{display:none}
+      .burger{display:block}
+      .apropos-grid{grid-template-columns:1fr}
+      .apropos-photos{max-width:520px;margin:0 auto 46px}
+      .infos-grid{grid-template-columns:1fr;gap:44px}
+      .gallery-grid{grid-template-columns:repeat(2,1fr)}
+      .avis-grid{grid-template-columns:1fr;max-width:620px;margin:0 auto}
+      .hero-content{padding:42px 28px 38px}
+    }
+    @media (max-width:640px){
+      body{font-size:16px}
+      .section{padding:72px 0}
+      #galerie,#contact{padding:72px 0}
+      .cards-grid{grid-template-columns:1fr;max-width:440px;margin:0 auto}
+      .gallery-grid{grid-template-columns:1fr;max-width:480px;margin:0 auto}
+      .gallery-item.wide{grid-column:auto}
+      .hero-actions{flex-direction:column;gap:14px}
+      .hero-actions .btn{width:100%;max-width:320px;text-align:center}
+      .contact-actions{flex-direction:column}
+      .contact-actions .btn{width:100%;max-width:320px;text-align:center}
+      .apropos-photos{padding-right:0;padding-bottom:34px}
+      .apropos-photo-small{width:44%;border-width:4px}
+      .footer-grid{grid-template-columns:1fr;gap:30px}
+      .footer-bottom{justify-content:center;text-align:center}
+    }
+    @media (max-width:400px){
+      .logo .logo-name{font-size:1.32rem}
+      .logo .logo-sub{font-size:.56rem}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a class="logo" href="#hero" aria-label="Lou Portaou — retour en haut de page">
+        <span class="logo-name">Lou <span>Portaou</span></span>
+        <span class="logo-sub">Bormes-les-Mimosas</span>
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="Navigation principale">
+        <a href="#apropos">Le restaurant</a>
+        <a href="#cuisine">La cuisine</a>
+        <a href="#avis">Avis</a>
+        <a href="#infos">Infos pratiques</a>
+        <a href="#contact">Contact</a>
+        <a class="header-tel" href="tel:+33494648637">Réserver — 04 94 64 86 37</a>
+      </nav>
+      <a class="header-tel header-tel-solo" href="tel:+33494648637">Réserver — 04 94 64 86 37</a>
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section id="hero">
+    <img class="hero-img" src="https://images.unsplash.com/photo-1782039361562-35cdf7239d57?auto=format&fit=crop&w=2000&q=80" alt="Ruelle pavée montant entre des maisons en pierre fleuries du vieux village provençal de Bormes-les-Mimosas" loading="eager">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-content">
+      <p class="hero-kicker">Vieux village médiéval · Bormes-les-Mimosas · Var</p>
+      <h1 class="hero-title"><em>Lou Portaou</em>Restaurant provençal au cœur du vieux Bormes</h1>
+      <p class="hero-sub">Niché dans une maison de village en pierre, à quelques pas de l'église, Lou Portaou cultive une ambiance romantique et chaleureuse où la cuisine provençale et méditerranéenne suit, jour après jour, le rythme des saisons.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#cuisine">Découvrir la cuisine</a>
+        <a class="btn btn-outline" href="tel:+33494648637">Réserver — 04 94 64 86 37</a>
+      </div>
+      <p class="hero-rating"><span class="stars" aria-hidden="true">★★★★★</span><br><strong>4,7/5</strong> sur Google — plus de 800 avis</p>
+    </div>
+  </section>
+
+  <!-- ================= LA CUISINE ================= -->
+  <section id="cuisine" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="section-label">La cuisine</p>
+        <h2 class="section-title">La Provence dans l'assiette, la Méditerranée au menu</h2>
+        <div class="ornament" aria-hidden="true"><i></i></div>
+        <p class="section-intro">Ici, la carte ne se fige jamais : elle s'écrit au fil des saisons, des marchés et de la pêche du jour. Des produits simples, des gestes justes, et le soleil du Var au rendez-vous de chaque assiette.</p>
+      </div>
+      <div class="cards-grid">
+        <article class="card reveal">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80" alt="Plats du marché dressés sur une table en bois brut avec herbes fraîches et ingrédients du jour" loading="eager">
+          </div>
+          <div class="card-body">
+            <p class="card-num">N° 1</p>
+            <h3 class="card-title">Au rythme des marchés</h3>
+            <div class="card-line" aria-hidden="true"></div>
+            <p class="card-text">La carte change au fil des saisons et des arrivages : légumes des maraîchers du Var, herbes fraîches, poissons pris le matin même. Chaque semaine apporte ses idées — jamais deux assiettes tout à fait identiques d'une saison à l'autre.</p>
+          </div>
+        </article>
+        <article class="card reveal">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1665401015549-712c0dc5ef85?auto=format&fit=crop&w=900&q=80" alt="Poisson entier grillé servi avec citron, tomates et oignons sur une assiette blanche" loading="eager">
+          </div>
+          <div class="card-body">
+            <p class="card-num">N° 2</p>
+            <h3 class="card-title">Poissons et produits de la Méditerranée</h3>
+            <div class="card-line" aria-hidden="true"></div>
+            <p class="card-text">Le poisson est roi : grillé entier ou à la braise, servi simplement avec un filet d'huile d'olive et un quartier de citron. Rougets, dorades, sardines et langoustines selon la pêche, cuisinés avec respect et sobriété.</p>
+          </div>
+        </article>
+        <article class="card reveal">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1785703285213-c15cbb8a286e?auto=format&fit=crop&w=900&q=80" alt="Tian de légumes du soleil — aubergines, courgettes et tomates — arrosé d'huile d'olive et d'herbes de Provence" loading="eager">
+          </div>
+          <div class="card-body">
+            <p class="card-num">N° 3</p>
+            <h3 class="card-title">Les légumes du soleil</h3>
+            <div class="card-line" aria-hidden="true"></div>
+            <p class="card-text">Tian confit à l'huile d'olive, ratatouille mijotée à l'ancienne, légumes rôtis aux herbes de Provence : nos spécialités provençales célèbrent les aubergines, les courgettes et les tomates gorgées de soleil.</p>
+          </div>
+        </article>
+        <article class="card reveal">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=900&q=80" alt="Verres de vin trinqués autour d'une table en plein air, moment de convivialité méditerranéenne" loading="eager">
+          </div>
+          <div class="card-body">
+            <p class="card-num">N° 4</p>
+            <h3 class="card-title">Les vins de Provence</h3>
+            <div class="card-line" aria-hidden="true"></div>
+            <p class="card-text">Rosés pâles du Var, blancs frais et rouges de garde : notre cave explore les crus de la région pour accompagner chaque plat. Le temps d'un verre ou d'un repas, la Provence se savoure aussi au bout des lèvres.</p>
+          </div>
+        </article>
+        <article class="card reveal">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Table du soir dressée avec entrée raffinée, verres de vin blanc et lumières douces aux chandelles" loading="eager">
+          </div>
+          <div class="card-body">
+            <p class="card-num">N° 5</p>
+            <h3 class="card-title">La table du soir</h3>
+            <div class="card-line" aria-hidden="true"></div>
+            <p class="card-text">À la nuit tombée, les murs de pierre gardent la fraîcheur du jour et la salle se pare de lumières douces. Le dîner devient un moment suspendu, idéal pour une soirée en amoureux comme pour un repas de famille.</p>
+          </div>
+        </article>
+        <article class="card reveal">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1689781307118-030db9290d38?auto=format&fit=crop&w=900&q=80" alt="Table élégamment dressée sous une pergola rustique sur une terrasse ombragée, à la lumière dorée du soir" loading="eager">
+          </div>
+          <div class="card-body">
+            <p class="card-num">N° 6</p>
+            <h3 class="card-title">La terrasse ombragée</h3>
+            <div class="card-line" aria-hidden="true"></div>
+            <p class="card-text">À l'ombre des murs fleuris de la ruelle, la terrasse offre une parenthèse méditerranéenne : le soleil filtre, le temps ralentit. Un apéritif, un déjeuner paresseux, un dîner à la fraîche — la Provence se vit dehors.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LE RESTAURANT / À PROPOS ================= -->
+  <section id="apropos" class="section">
+    <div class="container">
+      <div class="apropos-grid">
+        <div class="apropos-photos reveal">
+          <div class="apropos-photo-main">
+            <img src="https://images.unsplash.com/photo-1782039361508-821f77289324?auto=format&fit=crop&w=1200&q=80" alt="Ruelle en pierre du vieux village provençal menant vers l'église au clocher-mur, bordée de potées fleuries" loading="eager">
+          </div>
+          <div class="apropos-photo-small">
+            <img src="https://images.unsplash.com/photo-1703708038979-a6a1da47d967?auto=format&fit=crop&w=700&q=80" alt="Toits en tuiles canal et façades en pierre du village médiéval entouré de cyprès et de ruines anciennes" loading="eager">
+          </div>
+        </div>
+        <div class="apropos-text reveal">
+          <p class="section-label">Le restaurant</p>
+          <h2 class="section-title">Une maison en pierre, nichée au cœur du vieux Bormes</h2>
+          <div class="ornament" style="justify-content:flex-start;margin:0 0 20px" aria-hidden="true"><i></i></div>
+          <p>Au détour des ruelles fleuries du village médiéval de Bormes-les-Mimosas, à quelques pas de l'église, Lou Portaou prend place dans une authentique maison de village aux murs de pierre séculaires. Son nom murmure le provençal — celui de la <em>porta</em>, la porte : celle qu'on pousse avec plaisir pour s'attabler, s'attarder, revenir.</p>
+          <p>Le vieux Bormes perché tout près, ses maisons grimpées les unes sur les autres, ses bougainvilliers et son mimosa d'hiver font partie du décor. Les vieilles pierres gardent la fraîcheur de l'été et la douceur des veillées : l'ambiance y est romantique et chaleureuse, entre tables dressées à la lueur des bougies et conversations qui s'étirent. L'hiver, un coin de feu ; l'été, la terrasse ombragée, plongée dans la ruelle.</p>
+          <p>C'est cette Provence généreuse et paisible que nous avons envie de faire goûter : une cuisine sincère, des vins du Var, et le sentiment d'être, le temps d'un repas, au cœur du village.</p>
+          <ul class="apropos-points">
+            <li>Maison de village en pierre, à quelques pas de l'église</li>
+            <li>Ambiance romantique et chaleureuse, de jour comme de nuit</li>
+            <li>Terrasse ombragée sous les murs fleuris de la ruelle</li>
+            <li>Cuisine provençale et méditerranéenne, au rythme des saisons</li>
+            <li>4,7/5 sur Google — plus de 800 avis</li>
+          </ul>
+          <p class="apropos-signature">Bienvenue à Lou Portaou — on vous attend sous la ruelle.</p>
+          <div class="apropos-cta">
+            <a class="btn" href="tel:+33494648637">Réserver — 04 94 64 86 37</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GALERIE ================= -->
+  <style>
+    /* ===== Partie 2 : ajustements spécifiques ===== */
+    /* Header mobile : le bouton solo disparaît (le menu burger contient le bouton Réserver).
+       NB : le backdrop-filter du header crée un containing block qui casse le
+       position:fixed du menu → menu déroulant en absolute sous la barre. */
+    .header-tel-solo{display:none}
+    @media (max-width:900px){
+      .nav-links{
+        position:absolute;top:100%;bottom:auto;left:0;right:0;height:auto;
+        background:var(--brun-profond);
+        min-height:calc(100vh - 74px);
+        border-bottom:1px solid rgba(200,155,60,.28);
+        padding:34px 24px 38px;
+        transform:translateY(-10px);opacity:0;visibility:hidden;
+        transition:opacity .35s ease,transform .35s ease,visibility .35s;
+      }
+      .nav-links.open{transform:none;opacity:1;visibility:visible}
+      .nav-links .header-tel{display:inline-block;margin-top:8px}
+    }
+    .avis-summary-inline{margin-bottom:0}
+    .avis-exemple-note{margin-top:26px;text-align:center}
+    .avis-exemple-note span{
+      display:inline-block;
+      font-size:.86rem;font-style:italic;color:var(--texte-doux);
+      background:rgba(107,122,69,.07);
+      border:1px dashed rgba(107,122,69,.45);
+      border-radius:4px;
+      padding:8px 18px;
+    }
+    @media (max-width:640px){
+      .avis-exemple-note span{display:block;max-width:340px;margin:0 auto}
+    }
+  </style>
+
+  <!-- ================= GALERIE ================= -->
+  <section id="galerie">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="section-label">La galerie</p>
+        <h2 class="section-title">En images</h2>
+        <div class="ornament" aria-hidden="true"><i></i></div>
+        <p class="section-intro">Une ruelle fleurie, des murs de pierre, des assiettes qui sentent le soleil : voici l'atmosphère de Lou Portaou, entre le vieux village et la Méditerranée.</p>
+      </div>
+      <div class="gallery-grid">
+        <figure class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1607001516094-d2568b288f1f?auto=format&fit=crop&w=1200&q=80" alt="Ruelle étroite du village médiéval bordée de murs en pierre apparente et de grandes jarres en terre cuite" loading="eager">
+          <figcaption><strong>La ruelle du village</strong>Des murs de pierre séculaires, des jarres en terre cuite et des fleurs à chaque détour : le vieux Bormes commence ici.</figcaption>
+        </figure>
+        <figure class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1634736794027-3297ad344057?auto=format&fit=crop&w=1200&q=80" alt="Terrasse ombragée aux murs blancs couverts de plantes grimpantes, avec une table dressée pour le déjeuner" loading="eager">
+          <figcaption><strong>La terrasse ombragée</strong>À l'abri des murs fleuris de la ruelle, les tables attendent les déjeuners qui s'étirent jusqu'au bout de l'après-midi.</figcaption>
+        </figure>
+        <figure class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1600175074394-f2f4c500f7ea?auto=format&fit=crop&w=1200&q=80" alt="Assiette de poisson grillé servi avec des légumes croquants et une sauce, sur fond de cuisine méditerranéenne" loading="eager">
+          <figcaption><strong>Le poisson grillé du jour</strong>Pêche méditerranéenne, braise et filet de citron : la mer se sert simplement, avec respect et gourmandise.</figcaption>
+        </figure>
+        <figure class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1579712267685-42da80f60aa4?auto=format&fit=crop&w=1200&q=80" alt="Assiette gastronomique de poisson blanc et petits légumes de saison soigneusement dressée" loading="eager">
+          <figcaption><strong>Les plats provençaux</strong>Produits frais, gestes justes et légumes du soleil : la cuisine de saison s'écrit au fil des marchés du Var.</figcaption>
+        </figure>
+        <figure class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1532313432596-0362b492b33c?auto=format&fit=crop&w=1200&q=80" alt="Deux verres de vin rosé bien frais tenus à la main à la lumière du jour" loading="eager">
+          <figcaption><strong>Les vins de Provence</strong>Rosés pâles du Var, blancs parfumés et rouges de garde : notre cave accompagne chaque plat de ses crus régionaux.</figcaption>
+        </figure>
+        <figure class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1520869578617-557561d7b114?auto=format&fit=crop&w=1200&q=80" alt="Table du soir généreusement dressée en extérieur avec plats, fruits et vin, à la belle lumière de fin de journée" loading="eager">
+          <figcaption><strong>La table dressée en pierre</strong>À la fraîche du soir, le banquet se met en place : l'été provençal se partage autour d'une table généreuse.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= AVIS CLIENTS ================= -->
+  <section id="avis" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="section-label">Avis clients</p>
+        <h2 class="section-title">Ce que disent nos clients</h2>
+        <div class="ornament" aria-hidden="true"><i></i></div>
+        <p class="section-intro">Romantique, chaleureuse, authentique : ce sont les mots qui reviennent le plus souvent sous la plume de nos visiteurs. Merci à eux — et à bientôt sous la ruelle.</p>
+        <div class="avis-summary avis-summary-inline">
+          <p class="avis-score">4,7<small>/5</small></p>
+          <p class="avis-stars" aria-label="Note moyenne de 4,7 sur 5 étoiles">★★★★★</p>
+          <p>D'après plus de 800 avis Google — une adresse que l'on recommande et que l'on revit.</p>
+        </div>
+      </div>
+      <div class="avis-grid">
+        <article class="avis-card reveal">
+          <p class="avis-stars" aria-hidden="true">★★★★★</p>
+          <p class="avis-text">« Un endroit magnifique au cœur du vieux village. Dîner sur la terrasse à la lueur des bougies, poisson du jour parfaitement grillé et un accueil adorable. Nous avons déjà prévu d'y revenir. »</p>
+          <p class="avis-author">Sophie M.<small>Dîner en amoureux · visite de septembre</small></p>
+        </article>
+        <article class="avis-card reveal">
+          <p class="avis-stars" aria-hidden="true">★★★★★</p>
+          <p class="avis-text">« Le vrai goût de la Provence. Produits frais, cuisine qui sent le soleil, vins du Var bien choisis et un service aux petits soins. La ruelle vaut à elle seule le détour. »</p>
+          <p class="avis-author">Julien R.<small>Déjeuner en famille · visite d'août</small></p>
+        </article>
+        <article class="avis-card reveal">
+          <p class="avis-stars" aria-hidden="true">★★★★★</p>
+          <p class="avis-text">« On pousse la porte et on se sent tout de suite bien : la pierre, les bougies, la fraîcheur de la terrasse… Les légumes du soleil étaient un régal et le rapport qualité-prix très honnête. Une adresse que nous gardons précieusement. »</p>
+          <p class="avis-author">Nathalie B.<small>Vacances dans le Var · visite de juillet</small></p>
+        </article>
+      </div>
+      <p class="avis-exemple-note"><span>Exemples à remplacer par vos vrais avis Google.</span></p>
+      <p class="avis-footer reveal">Vous nous avez déjà rendu visite ? <a class="link-or" href="#contact">Appelez-nous</a> pour réserver votre prochaine table sous la ruelle.</p>
+    </div>
+  </section>
+
+  <!-- ================= INFOS PRATIQUES ================= -->
+  <section id="infos" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="section-label">Infos pratiques</p>
+        <h2 class="section-title">Nous trouver, nous joindre</h2>
+        <div class="ornament" aria-hidden="true"><i></i></div>
+        <p class="section-intro">Lou Portaou se niche au cœur du village médiéval de Bormes-les-Mimosas : on y vient à pied, on y revient par envie.</p>
+      </div>
+      <div class="infos-grid">
+        <div class="reveal">
+          <div class="info-block">
+            <h3>Adresse</h3>
+            <address>
+              1 Ruelle des Sarrazins<br>
+              Village médiéval<br>
+              83230 Bormes-les-Mimosas
+            </address>
+          </div>
+          <div class="info-block">
+            <h3>Téléphone</h3>
+            <p><a class="link-or" href="tel:+33494648637">04 94 64 86 37</a></p>
+            <p>Réserver une table, demander conseil sur la carte ou vérifier les disponibilités du jour : un appel suffit, nous vous répondons avec plaisir.</p>
+          </div>
+          <div class="info-block">
+            <h3>Accès</h3>
+            <p>Au cœur du village médiéval de Bormes-les-Mimosas, à quelques pas de l'église. On y accède à pied depuis les parkings du village : quelques ruelles pittoresques, et vous y êtes.</p>
+          </div>
+          <div class="info-note">
+            <strong>Horaires :</strong> contactez-nous au <a class="link-or" href="tel:+33494648637">04 94 64 86 37</a> — nous vous communiquons volontiers les jours et les services d'ouverture.
+          </div>
+        </div>
+        <aside class="infos-reassurance reveal">
+          <h3>Une table au cœur du vieux Bormes</h3>
+          <p>Terrasse ombragée pour les déjeuners paresseux, salle en pierre aux lumières douces pour les dîners romantiques, grandes tablées pour les repas de famille : chaque envie trouve sa place.</p>
+          <p>Les soirs d'été et les week-ends sont vite complets : un petit coup de fil vous garantit la meilleure table.</p>
+          <a class="btn" href="tel:+33494648637">Réserver — 04 94 64 86 37</a>
+          <p class="infos-note-google"><strong>4,7/5</strong> sur Google — plus de 800 avis.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="section-label">Réservation</p>
+        <h2 class="section-title">Nous contacter</h2>
+        <div class="ornament" aria-hidden="true"><i></i></div>
+        <p class="section-intro">Une envie de Provence, une table à la fraîche d'une ruelle de pierre, un dîner qui s'étire à la lueur des bougies ? Passez-nous simplement un coup de fil : nous serons heureux de vous réserver la plus belle place du village.</p>
+      </div>
+      <div class="contact-actions reveal">
+        <a class="btn" href="tel:+33494648637">Appeler — 04 94 64 86 37</a>
+        <a class="btn btn-creme" href="#infos">Voir les infos pratiques</a>
+      </div>
+      <p class="contact-adresse"><strong>Lou Portaou</strong> — 1 Ruelle des Sarrazins, Village médiéval, 83230 Bormes-les-Mimosas</p>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="logo" href="#hero" aria-label="Lou Portaou — retour en haut de page">
+            <span class="logo-name">Lou <span>Portaou</span></span>
+            <span class="logo-sub">Bormes-les-Mimosas</span>
+          </a>
+          <p>Restaurant provençal et méditerranéen au cœur du village médiéval de Bormes-les-Mimosas. Maison en pierre, terrasse ombragée et cuisine de saison, à quelques pas de l'église.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Le restaurant</h4>
+          <ul>
+            <li><a href="#apropos">Le restaurant</a></li>
+            <li><a href="#cuisine">La cuisine</a></li>
+            <li><a href="#galerie">En images</a></li>
+            <li><a href="#avis">Avis clients</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Infos &amp; contact</h4>
+          <ul>
+            <li>1 Ruelle des Sarrazins, Village médiéval, 83230 Bormes-les-Mimosas</li>
+            <li><a href="tel:+33494648637">04 94 64 86 37</a></li>
+            <li><a href="#infos">Infos pratiques</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Lou Portaou — Bormes-les-Mimosas. Tous droits réservés.</span>
+        <span>Maquette d'idée — photos d'illustration libres de droits.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script>
+    (function(){
+      var burger=document.getElementById('burger'),nav=document.getElementById('nav-links');
+      if(burger&&nav){
+        burger.addEventListener('click',function(){
+          var o=nav.classList.toggle('open');
+          burger.classList.toggle('open',o);
+          burger.setAttribute('aria-expanded',o?'true':'false');
+        });
+      }
+      if(!('IntersectionObserver' in window)){return;}
+      document.documentElement.classList.add('js');
+      var els=document.querySelectorAll('.reveal');
+      var io=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}
+        });
+      },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+      els.forEach(function(el){io.observe(el);});
+    })();
+  </script>
+</body>
+</html>
